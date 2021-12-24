@@ -1,15 +1,19 @@
+name = texter
+# Note changing this will break WasmCord
+outfile = plugin
 build: 
 	yarn > /dev/null && \
-	rm -rf plugin && \
-	wasm-pack build --target web --no-typescript -d plugin --out-name plugin && \
-	yarn esbuild plugin/plugin.js \
-		--outfile=plugin/plugin.js \
+	rm -rf ${name} && \
+	wasm-pack build --target web --no-typescript -d ${name} --out-name ${outfile} && \
+	sed -i 's/fetch(input)/require("fs").readFileSync(require("path").join(__dirname, "${outfile}.wasm"))/g' ${name}/${outfile}.js && \
+	yarn -s esbuild ${name}/${outfile}.js \
+		--outfile=${name}/${outfile}.js \
 		--platform=node \
-		--sourcemap=inline \
 		--target=es2020 \
 		--format=cjs \
+		--minify \
 		--allow-overwrite && \
-	node build.js && \
-	rm plugin/package.json && \
-	rm plugin/.gitignore && \
-	mv plugin/plugin_bg.wasm plugin/plugin.wasm
+	rm ${name}/package.json && \
+	rm ${name}/.gitignore && \
+	rm ${name}/README.md && \
+	mv ${name}/${outfile}_bg.wasm ${name}/${outfile}.wasm

@@ -4,7 +4,7 @@ const { Plugin } = require('powercord/entities');
 const { join } = require('path');
 // @ts-ignore
 const { readdirSync } = require('fs');
-module.exports = class Mock extends Plugin {
+module.exports = class WasmCord extends Plugin {
 	commands = [];
 	async startPlugin() {
 		const dir = join(__dirname, 'plugins');
@@ -25,7 +25,7 @@ module.exports = class Mock extends Plugin {
 					powercord.api.commands.registerCommand(command);
 				}
 			} catch (e) {
-				console.error(`[WasmCord] Failed to load plugin`, e);
+				console.error(`[WasmCord] Failed to load a plugin`, e);
 			}
 		}
 	}
