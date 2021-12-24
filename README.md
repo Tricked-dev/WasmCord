@@ -22,7 +22,7 @@ $ git clone <plugin link>
 
 ## Development
 
-See [example](./example/README.md)
+See [example](https://github.com/Tricked-dev/texter-wasm) for a full plugin example made with WasmCord.
 
 ## License
 

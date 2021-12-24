@@ -3,11 +3,12 @@
 const { Plugin } = require('powercord/entities');
 const { join } = require('path');
 // @ts-ignore
-const { readdirSync } = require('fs');
+const { readdirSync, mkdirSync } = require('fs');
 module.exports = class WasmCord extends Plugin {
 	commands = [];
 	async startPlugin() {
 		const dir = join(__dirname, 'plugins');
+		mkdirSync(dir);
 		for (const directory of readdirSync(dir)) {
 			try {
 				let plugin = require(join(dir, directory, 'plugin'));
