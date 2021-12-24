@@ -1,4 +1,6 @@
-# WasmCord This is a powercord plugin that allows you to easily make plugins using rust without needing to touch javascript at all
+# WasmCord
+
+With wasmcord you use create powercord plugins without touching javascript.
 
 ## Installing WasmCord
 
@@ -21,3 +23,7 @@ $ git clone <plugin link>
 ## Development
 
 See [example](./example/README.md)
+
+## License
+
+This project is dual licensed under MIT and Apache-2
