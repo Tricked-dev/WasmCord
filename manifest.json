@@ -1,0 +1,7 @@
+{
+  "name": "WasmCord",
+  "version": "1.1.0",
+  "description": "Adds wasm easier Support to powercord",
+  "author": "Tricked-dev",
+  "license": "MIT"
+}
